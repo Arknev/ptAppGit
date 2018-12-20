@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "pt-app-root-wp-2-client-side-solution",
+    "id": "72e2a41d-8f58-42fd-ac71-ba2ef5e1c011",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/pt-app-root-wp-2.sppkg"
+  }
+}
