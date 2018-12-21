@@ -73,11 +73,7 @@ export class SiteWideSecMessageHandler extends React.Component<ISiteWideSecMessa
               </div>
               <div>
                 <strong>{'Group Name: '}</strong>
-                {
-                  this.props.CurrentUserProps['DistName'] ?
-                  this.props.CurrentUserProps['DistName'] :
-                  this.props.CurrentUserProps['ThirdName']
-                }
+                {this.props.CurrentUserProps['DistName'] ? this.props.CurrentUserProps['DistName'] : this.props.CurrentUserProps['ThirdName']}
               </div>
               <div>
                 <strong>{'User Roles'}</strong>
@@ -88,37 +84,6 @@ export class SiteWideSecMessageHandler extends React.Component<ISiteWideSecMessa
         </div>
       ;
     }
-    // let TestSecMessageJSX =
-    //   // <MessageBar
-    //   //   messageBarType={MessageBarType.blocked}
-    //   //   isMultiline={false}
-    //   //   onDismiss={log('test')}
-    //   //   dismissButtonAriaLabel="Close"
-    //   //   truncated={true}
-    //   //   overflowButtonAriaLabel="See more"
-    //   // >Testing Error Message</MessageBar>
-    //   <div>
-    //     <DefaultButton secondaryText="Opens the Sample Dialog" onClick={this._showDialog} text="Open Dialog" />
-    //     <Dialog
-    //       hidden={this.state.hideDialog}
-    //       onDismiss={this._closeDialog}
-    //       dialogContentProps={{
-    //         type: DialogType.normal,
-    //         title: this.props.CurrentUserProps['DispName'],
-    //         subText: this.props.CurrentUserProps['EMail'],
-    //       }}
-    //       modalProps={{
-    //         isBlocking: true,
-    //         containerClassName: 'ms-dialogMainOverride'
-    //       }}
-    //     >
-    //       <DialogFooter>
-    //         <PrimaryButton onClick={this._closeDialog} text="Save" />
-    //         <DefaultButton onClick={this._closeDialog} text="Cancel" />
-    //       </DialogFooter>
-    //     </Dialog>
-    //   </div>
-    // ;
     return UserSecurityPanelJSX;
   }
 }
