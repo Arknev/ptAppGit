@@ -80,7 +80,7 @@ export default class PtAppExtensionMainApplicationCustomizer extends BaseApplica
     let currentPageUrl:string = document.URL;
     let sitePagesLibraryPath = this.context.pageContext.web.serverRelativeUrl + "/SitePages";
     this.context.dynamicDataSourceManager.initializeSource(this);
-    return Promise.resolve().then(_ => {
+    return Promise.resolve().then(() => {
       sp.setup({
         spfxContext: this.context
       });
@@ -154,7 +154,7 @@ export default class PtAppExtensionMainApplicationCustomizer extends BaseApplica
               if(sitePagesLibraryPath.toLowerCase() === this.context.pageContext.list.serverRelativeUrl.toLowerCase()){
                 this.context.placeholderProvider.changedEvent.add(this, this.RenderPlaceHolders);
               }
-              console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
+              console.log('CurrentUserProps');
               console.log(CurrentUserProps);
               /** Add dynamic data value set function here */
               this.context.dynamicDataSourceManager.notifyPropertyChanged('currUser');
@@ -170,7 +170,6 @@ export default class PtAppExtensionMainApplicationCustomizer extends BaseApplica
           console.error('The expected placeholder (Bottom) was not found.');
           return;
       }
-      // Create and Render the react element that displays page metadata in the footer.
       const element: React.ReactElement<ISiteWideSecMessageHandler> = React.createElement(
         SiteWideSecMessageHandler,
         {
