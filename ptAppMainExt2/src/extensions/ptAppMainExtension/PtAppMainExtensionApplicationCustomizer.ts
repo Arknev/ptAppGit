@@ -19,15 +19,15 @@ let DsAppsWeb = new Web('https://staffkyschools.sharepoint.com/sites/dsapps/');
 let IsDebugMode: any = '';
 let CurrentUserProps = {
   ItemId: '0',
-  DispName: null,
-  AccountName: null,
-  EMail: null,
-  DistId: null,
-  DistName: null,
-  ThirdId: null,
-  ThirdName: null,
+  DispName: '0',
+  AccountName: '0',
+  EMail: '0',
+  DistId: '0',
+  DistName: '0',
+  ThirdId: '0',
+  ThirdName: '0',
   Roles: null,
-  RoleIds: null,
+  RoleIds: '0',
 };
 let ItemsUserMembership: {
   RoleName: string,
@@ -49,20 +49,6 @@ export interface IPtAppExtensionMainApplicationCustomizerProperties {
 /** A Custom Action which can be run during execution of a Client Side Application */
 export default class PtAppExtensionMainApplicationCustomizer extends BaseApplicationCustomizer<IPtAppExtensionMainApplicationCustomizerProperties> implements IDynamicDataCallables {
   private _footerPlaceHolder: PlaceholderContent | undefined;
-  // /**
-  //  * Currently selected event
-  //  */
-  // private _selectedEvent: IUserProps;
-  // /**
-  //  * Event handler for selecting an event in the list
-  //  */
-  // private _eventSelected = (event: IUserProps): void => {
-  //   // store the currently selected event in the class variable. Required
-  //   // so that connected component will be able to retrieve its value
-  //   this._selectedEvent = event;
-  //   // notify subscribers that the selected event has changed
-  //   this.context.dynamicDataSourceManager.notifyPropertyChanged('event');
-  // }
   /**
    * Return list of dynamic data properties that this dynamic data source returns
    */
@@ -91,8 +77,6 @@ export default class PtAppExtensionMainApplicationCustomizer extends BaseApplica
     Log.info(LOG_SOURCE, `Initialized ${strings.Title}`);
     let QSParams = new URL(window.location.href).searchParams;
     IsDebugMode = QSParams.get('KdeDebugMode');
-    console.log(IsDebugMode);
-    // Dialog.alert(`EXTENSION LOADED!`);
     let currentPageUrl:string = document.URL;
     let sitePagesLibraryPath = this.context.pageContext.web.serverRelativeUrl + "/SitePages";
     this.context.dynamicDataSourceManager.initializeSource(this);

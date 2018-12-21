@@ -2,7 +2,6 @@ import * as React from 'react';
 import styles from './PtAppRootWp2.module.scss';
 import { IPtAppRootWp2Props } from './IPtAppRootWp2Props';
 import { escape } from '@microsoft/sp-lodash-subset';
-
 export default class PtAppRootWp1 extends React.Component<IPtAppRootWp2Props, {}> {
   private RoleItemRender(RolesJsonString){
     let RoleJSX: any = null;

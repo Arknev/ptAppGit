@@ -31,16 +31,10 @@ export interface IPtAppRootWp1WebPartProps {
   UserRoleIds: DynamicProperty<string>;
 }
 export default class PtAppRootWp1WebPart extends BaseClientSideWebPart<IPtAppRootWp1WebPartProps> {
-  /**
-   * Event handler for clicking the Configure button on the Placeholder
-   */
   private _onConfigure = (): void => {
     this.context.propertyPane.open();
   }
   public render(): void {
-    // Get the location to show on the map. The location will be retrieved
-    // either from the event selected in the connected data source or from the
-    // address entered in web part properties
     const UserItemId: string | undefined = this.properties.UserItemId.tryGetValue();
     const UserDispName: string | undefined = this.properties.UserDispName.tryGetValue();
     const UserAccountName: string | undefined = this.properties.UserAccountName.tryGetValue();
@@ -77,11 +71,6 @@ export default class PtAppRootWp1WebPart extends BaseClientSideWebPart<IPtAppRoo
     return Version.parse('1.0');
   }
 
-  /**
-   * DEV this function is related to the serialization issue
-   * ---------------------------------------------
-   * ---------------------------------------------
-   */
   protected get propertiesMetadata(): IWebPartPropertiesMetadata {
     return {
       'UserItemId': {
@@ -208,50 +197,7 @@ export default class PtAppRootWp1WebPart extends BaseClientSideWebPart<IPtAppRoo
       ]
     };
   }
-
-
-  // protected onDispose(): void {
-  //   ReactDom.unmountComponentAtNode(this.domElement);
-  // }
-
-  // protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
-  //   return {
-  //     pages: [
-  //       {
-  //         header: {
-  //           description: strings.PropertyPaneDescription
-  //         },
-  //         groups: [
-  //           {
-  //             groupName: strings.BasicGroupName,
-  //             groupFields: [
-  //               PropertyPaneDynamicFieldSet({
-  //                 label: 'CurrentUser',
-  //                 fields: [
-  //                   PropertyPaneDynamicField('ItemId', {
-  //                     label: strings.ItemIdFieldLabel
-  //                   }),
-  //                   PropertyPaneDynamicField('DispName', {
-  //                     label: strings.DispNameFieldLabel
-  //                   })
-  //                 ],
-  //                 sharedConfiguration: {
-  //                   // because address and city come from the same data source
-  //                   // the connection can share the selected dynamic property
-  //                   depth: DynamicDataSharedDepth.Property
-  //                 }
-  //               })
-  //             ]
-  //           }
-  //         ]
-  //       }
-  //     ]
-  //   };
-  // }
   protected get disableReactivePropertyChanges(): boolean {
-    // set property changes mode to reactive, so that the Bing Maps API is not
-    // called on each keystroke when typing in the address to show on the map
-    // in web part properties
     return true;
   }
 }
